@@ -1,0 +1,21 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Collection {
+  id        String   @id @default(uuid())
+  qrId      String   @unique @map("qr_id")
+  weight    Float
+  points    Int
+  timestamp DateTime
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([createdAt])
+  @@map("collections")
+}

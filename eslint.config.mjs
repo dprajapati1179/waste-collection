@@ -4,7 +4,13 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['**/dist/**', '**/node_modules/**', 'apps/web/**', 'apps/mobile/**'],
+    ignores: [
+      '**/dist/**',
+      '**/node_modules/**',
+      '**/generated/**',
+      'apps/web/**',
+      'apps/mobile/**',
+    ],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,

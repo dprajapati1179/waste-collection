@@ -1,0 +1,3 @@
+src/generated/
+*.db
+*.db-journal
