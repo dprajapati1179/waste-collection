@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const MAX_WEIGHT_KG = 1000;
+const MAX_WEIGHT_KG = 1000;
 const MAX_CLOCK_SKEW_MS = 5 * 60 * 1000;
 
 const hasAtMostTwoDecimals = (value: number) =>

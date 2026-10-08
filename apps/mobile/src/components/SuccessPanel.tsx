@@ -1,7 +1,7 @@
 import type { Collection } from '@waste-collection/types';
 import { StyleSheet, Text, View } from 'react-native';
 
-import { SUBMISSION_MESSAGES } from '../types/collection';
+import { SUBMISSION_MESSAGES } from '../constants/messages';
 import { Button } from './Button';
 
 interface Props {

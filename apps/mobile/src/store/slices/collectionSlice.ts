@@ -1,12 +1,8 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { Collection } from '@waste-collection/types';
 
-import {
-  SUBMISSION_MESSAGES,
-  type CameraPermission,
-  type CollectionStatus,
-  type SubmissionError,
-} from '../../types/collection';
+import { SUBMISSION_MESSAGES } from '../../constants/messages';
+import type { CameraPermission, CollectionStatus, SubmissionError } from '../../types/collection';
 import { submitCollection } from '../thunks/submitCollection';
 
 export interface CollectionState {
