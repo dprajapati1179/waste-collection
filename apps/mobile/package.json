@@ -11,11 +11,13 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.13.0",
     "@waste-collection/types": "workspace:*",
     "expo": "~57.0.27",
     "expo-status-bar": "~57.0.1",
     "react": "19.2.3",
-    "react-native": "0.86.3"
+    "react-native": "0.86.3",
+    "react-redux": "^9.3.0"
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
