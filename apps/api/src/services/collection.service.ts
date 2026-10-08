@@ -2,7 +2,11 @@ import type { Collection } from '@waste-collection/types';
 
 import { AppError } from '../errors/AppError';
 import type { Collection as CollectionRecord } from '../generated/prisma/client';
-import { DuplicateQrIdError, insertCollection } from '../repositories/collection.repository';
+import {
+  DuplicateQrIdError,
+  findAllCollections,
+  insertCollection,
+} from '../repositories/collection.repository';
 import type { CreateCollectionInput } from '../schemas/collection.schema';
 import { calculatePoints } from './points';
 
@@ -32,4 +36,9 @@ export async function createCollection(input: CreateCollectionInput): Promise<Co
     }
     throw err;
   }
+}
+
+export async function listCollections(): Promise<Collection[]> {
+  const records = await findAllCollections();
+  return records.map(toCollectionDto);
 }

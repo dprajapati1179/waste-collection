@@ -1,7 +1,8 @@
 import { Router } from 'express';
 
-import { postCollection } from '../controllers/collection.controller';
+import { getCollections, postCollection } from '../controllers/collection.controller';
 
 export const collectionRouter = Router();
 
+collectionRouter.get('/', getCollections);
 collectionRouter.post('/', postCollection);

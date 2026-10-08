@@ -25,3 +25,9 @@ export async function insertCollection(data: NewCollection): Promise<Collection>
     throw err;
   }
 }
+
+export function findAllCollections(): Promise<Collection[]> {
+  return prisma.collection.findMany({
+    orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+  });
+}
