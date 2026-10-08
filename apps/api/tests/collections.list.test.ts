@@ -39,6 +39,20 @@ describe('GET /collections', () => {
     ]);
   });
 
+  it('lists only successful collections', async () => {
+    const post = (body: object) => request(app).post('/collections').send(body);
+    const timestamp = '2026-10-08T09:00:00.000Z';
+
+    await post({ qr_id: 'BAG-OK', weight: 1, timestamp });
+    await post({ qr_id: 'BAG-OK', weight: 2, timestamp });
+    await post({ qr_id: 'BAG-BAD', weight: -1, timestamp });
+
+    const res = await request(app).get('/collections');
+
+    expect(res.body.data).toHaveLength(1);
+    expect(res.body.data[0]).toMatchObject({ qr_id: 'BAG-OK', weight: 1 });
+  });
+
   it('orders collections newest first', async () => {
     const timestamp = new Date('2026-10-08T08:00:00.000Z');
     await prisma.collection.createMany({
