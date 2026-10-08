@@ -34,6 +34,7 @@ const collectionSlice = createSlice({
       state.status = 'scanned';
     },
     weightChanged(state, action: PayloadAction<string>) {
+      if (state.status !== 'scanned') return;
       state.weight = action.payload;
     },
     collectionReset(state) {
