@@ -1,7 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
 
 import { validateWeight } from '../utils/weight';
-import type { RootState } from './index';
+import type { RootState } from './createStore';
 
 export const selectCollection = (state: RootState) => state.collection;
 
@@ -10,5 +10,4 @@ export const selectWeightValidation = createSelector(
   validateWeight,
 );
 
-export const selectIsReadyToSubmit = (state: RootState) =>
-  state.collection.status === 'scanned' && selectWeightValidation(state).valid;
+export const selectSettings = (state: RootState) => state.settings;

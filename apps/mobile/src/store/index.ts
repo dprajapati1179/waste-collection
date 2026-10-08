@@ -1,12 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
+import { getDefaultApiUrl } from '../utils/apiUrl';
+import { createStore } from './createStore';
+import { initialSettings } from './slices/settingsSlice';
 
-import collectionReducer from './slices/collectionSlice';
-
-export const store = configureStore({
-  reducer: {
-    collection: collectionReducer,
-  },
+export const store = createStore({
+  settings: { ...initialSettings, apiUrl: getDefaultApiUrl() },
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type { AppDispatch, RootState } from './createStore';

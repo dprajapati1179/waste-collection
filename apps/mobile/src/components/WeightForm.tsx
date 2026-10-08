@@ -6,17 +6,19 @@ import { Button } from './Button';
 interface Props {
   weight: string;
   error: string | null;
+  submitting: boolean;
+  submitLabel: string;
   onChange: (value: string) => void;
-  onSubmit?: () => void;
+  onSubmit: () => void;
 }
 
-export function WeightForm({ weight, error, onChange, onSubmit }: Props) {
+export function WeightForm({ weight, error, submitting, submitLabel, onChange, onSubmit }: Props) {
   const [touched, setTouched] = useState(false);
   const visibleError = touched ? error : null;
 
   const handleSubmit = () => {
     setTouched(true);
-    if (!error) onSubmit?.();
+    if (!error) onSubmit();
   };
 
   return (
@@ -27,6 +29,7 @@ export function WeightForm({ weight, error, onChange, onSubmit }: Props) {
         onChangeText={onChange}
         onBlur={() => setTouched(true)}
         onSubmitEditing={handleSubmit}
+        editable={!submitting}
         placeholder="0.00"
         keyboardType="decimal-pad"
         inputMode="decimal"
@@ -36,7 +39,7 @@ export function WeightForm({ weight, error, onChange, onSubmit }: Props) {
         accessibilityLabel="Waste weight in kilograms"
       />
       {visibleError && <Text style={styles.error}>{visibleError}</Text>}
-      <Button label="Submit" onPress={handleSubmit} />
+      <Button label={submitLabel} onPress={handleSubmit} loading={submitting} />
     </View>
   );
 }
