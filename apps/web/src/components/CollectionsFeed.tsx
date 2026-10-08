@@ -1,4 +1,5 @@
 import type { Collection } from '@waste-collection/types';
+import { connection } from 'next/server';
 
 import { getCollections } from '@/lib/collectionsApi';
 
@@ -7,6 +8,8 @@ import { FeedMessage } from './FeedMessage';
 import { RefreshButton } from './RefreshButton';
 
 export async function CollectionsFeed() {
+  await connection();
+
   let collections: Collection[];
   try {
     collections = await getCollections();
