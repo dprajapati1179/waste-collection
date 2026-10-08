@@ -187,6 +187,9 @@ importers:
 
   apps/api:
     dependencies:
+      '@waste-collection/types':
+        specifier: workspace:*
+        version: link:../../packages/types
       express:
         specifier: ^5.2.1
         version: 5.2.1(supports-color@8.1.1)
@@ -206,6 +209,9 @@ importers:
 
   apps/mobile:
     dependencies:
+      '@waste-collection/types':
+        specifier: workspace:*
+        version: link:../../packages/types
       expo:
         specifier: ~57.0.27
         version: 57.0.27(@babel/core@7.29.7(supports-color@8.1.1))(react-native@0.86.3(@babel/core@7.29.7(supports-color@8.1.1))(@types/react@19.2.18)(react@19.2.3)(supports-color@8.1.1))(react@19.2.3)(supports-color@8.1.1)(typescript@6.0.3)
@@ -234,6 +240,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@waste-collection/types':
+        specifier: workspace:*
+        version: link:../../packages/types
       next:
         specifier: 16.4.0
         version: 16.4.0(@babel/core@7.29.7(supports-color@8.1.1))(@types/node@24.19.1)(babel-plugin-react-compiler@1.0.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
