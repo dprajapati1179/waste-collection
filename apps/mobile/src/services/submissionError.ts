@@ -1,6 +1,7 @@
 import type { ApiErrorResponse } from '@waste-collection/types';
 
-import { SUBMISSION_MESSAGES, type SubmissionError } from '../types/collection';
+import { SUBMISSION_MESSAGES } from '../constants/messages';
+import type { SubmissionError } from '../types/collection';
 
 export class SubmissionFailure extends Error {
   constructor(readonly error: SubmissionError) {

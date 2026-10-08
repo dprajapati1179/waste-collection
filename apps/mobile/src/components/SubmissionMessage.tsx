@@ -1,6 +1,7 @@
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 
-import { SUBMISSION_MESSAGES, type SubmissionError } from '../types/collection';
+import { SUBMISSION_MESSAGES } from '../constants/messages';
+import type { SubmissionError } from '../types/collection';
 
 interface Props {
   submitting: boolean;
